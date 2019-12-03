@@ -167,10 +167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mira: {fileID: 1037118387}
   player: {fileID: 4481506917206212723, guid: 39bfc58600e7e964c8ba4347e806c2a9, type: 3}
-  bulletPrefab: {fileID: 6834535410685727936, guid: d28e64e2b8c73184cb91bea626cdc9d5,
-    type: 3}
-  bulletStart: {fileID: 338602707}
-  bulletSpeed: 600
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -308,6 +304,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &763036805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4481506917206212723, guid: 39bfc58600e7e964c8ba4347e806c2a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4481506917634404639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &763036806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763036805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29848d7172f0aa14aab323e4b11c69ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6834535410685727936, guid: d28e64e2b8c73184cb91bea626cdc9d5,
+    type: 3}
+  bulletStart: {fileID: 338602707}
+  bulletSpeed: 600
 --- !u!1001 &806079350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -983,6 +1001,11 @@ PrefabInstance:
         type: 3}
       propertyPath: activeBullet
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1870787537803920047, guid: 39bfc58600e7e964c8ba4347e806c2a9,
+        type: 3}
+      propertyPath: bulletCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6521766510799949677, guid: 39bfc58600e7e964c8ba4347e806c2a9,
         type: 3}

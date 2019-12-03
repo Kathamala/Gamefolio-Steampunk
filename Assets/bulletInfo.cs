@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class bulletInfo : MonoBehaviour
 {
-    public float damage = 50f;
+    public float damage = 10f;
+    public int bulletType = 0; //1- Shotgun, 2- MachineGun, 3- Pistol, 4- RocketLauncher;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (bulletType == 1)
+        {
+            damage = 15;
+        }
+        if (bulletType == 2)
+        {
+            damage = 5;
+        }
+        if (bulletType == 3)
+        {
+            damage = 10;
+        }
+        if (bulletType == 4)
+        {
+            damage = 100;
+        }
     }
 }

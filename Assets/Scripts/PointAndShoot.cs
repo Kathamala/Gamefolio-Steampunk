@@ -7,16 +7,11 @@ public class PointAndShoot : MonoBehaviour
     public GameObject mira;
     public GameObject player;
     private Vector3 target;
-    public GameObject bulletPrefab;
-    public GameObject bulletStart;
-
-    public float bulletSpeed = 600.0f;
 
     void Start()
     {
         Cursor.visible = false;
         player = GameObject.Find("Player");
-        bulletStart = GameObject.Find("bulletStart");
     }
 
     void Update()
@@ -28,21 +23,33 @@ public class PointAndShoot : MonoBehaviour
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         //player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && player.GetComponent<CharacterStats>().bulletCount > 0)
         {
             float distance = difference.magnitude;
             Vector2 direction = difference / distance;
             direction.Normalize();
-            fireBullet(direction, rotationZ);
+            if (player.GetComponent<CharacterStats>().activeBullet == 1)
+            {
+                player.GetComponent<GunShots>().shotgunShot(direction, rotationZ);
+            }
+            if (player.GetComponent<CharacterStats>().activeBullet == 2)
+            {
+                player.GetComponent<GunShots>().machineGunShot(direction, rotationZ);
+            }
+            if (player.GetComponent<CharacterStats>().activeBullet == 3)
+            {
+                player.GetComponent<GunShots>().pistolShot(direction, rotationZ);
+            }
+            //Só enquanto as outras balas não estão feitas
+            else
+            {
+                player.GetComponent<GunShots>().pistolShot(direction, rotationZ);
+            }
         }
-    }
 
-    void fireBullet(Vector2 direction, float rotationZ)
-    {
-        GameObject b = Instantiate(bulletPrefab) as GameObject;
-        b.transform.position = bulletStart.transform.position;
-
-        b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
-        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed * Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.R) && player.GetComponent<CharacterStats>().bulletCount == 0)
+        {
+            player.GetComponent<GunShots>().recharge(player.GetComponent<CharacterStats>().activeBullet);
+        }
     }
 }
