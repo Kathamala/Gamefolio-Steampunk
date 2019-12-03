@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,11 +10,12 @@ public class PlayerController : MonoBehaviour
 
     float horizontal;
     float vertical;
-    public float speed = 20f;
+    private float speed;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        speed = GetComponent<CharacterStats>().speed;
     }
 
     void Update()
@@ -25,5 +27,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed * Time.deltaTime, vertical * speed * Time.deltaTime);
+
+        if (GetComponent<CharacterStats>().heatlh == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
