@@ -80,6 +80,26 @@ public class GunShots : MonoBehaviour
         GetComponent<CharacterStats>().bulletCount--;
     }
 
+    //Rocket Launcher - 4
+    public void rocketLauncherShot(Vector2 direction, float rotationZ)
+    {
+        if (!canShoot)
+        {
+            return;
+        }
+
+        GameObject b = Instantiate(bulletPrefab) as GameObject;
+        b.transform.position = bulletStart.transform.position;
+        b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed * Time.deltaTime;
+
+        b.GetComponent<bulletInfo>().bulletType = 4;
+        canShoot = false;
+        StartCoroutine(wait(1.5f));
+
+        GetComponent<CharacterStats>().bulletCount--;
+    }
+
     public void recharge(int activeBullet)
     {
         if (activeBullet == 1 || activeBullet == 4)

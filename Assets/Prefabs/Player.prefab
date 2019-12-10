@@ -192,7 +192,7 @@ MonoBehaviour:
   attack: 0
   defense: 0
   activeBullet: 1
-  speed: 150
+  speed: 4
 --- !u!114 &-5294097946682371024
 MonoBehaviour:
   m_ObjectHideFlags: 0

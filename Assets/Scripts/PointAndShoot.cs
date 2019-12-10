@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,10 +40,9 @@ public class PointAndShoot : MonoBehaviour
             {
                 player.GetComponent<GunShots>().pistolShot(direction, rotationZ);
             }
-            //Só enquanto as outras balas não estão feitas
-            else
+            if (player.GetComponent<CharacterStats>().activeBullet == 4)
             {
-                player.GetComponent<GunShots>().pistolShot(direction, rotationZ);
+                player.GetComponent<GunShots>().rocketLauncherShot(direction, rotationZ);
             }
         }
 
@@ -52,4 +51,4 @@ public class PointAndShoot : MonoBehaviour
             player.GetComponent<GunShots>().recharge(player.GetComponent<CharacterStats>().activeBullet);
         }
     }
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

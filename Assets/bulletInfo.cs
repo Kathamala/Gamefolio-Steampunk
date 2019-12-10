@@ -21,9 +21,9 @@ public class bulletInfo : MonoBehaviour
         {
             damage = 10;
         }
-        if (bulletType == 4)
+        if (bulletType == 3)
         {
-            damage = 100;
+            damage = 0;
         }
     }
 }

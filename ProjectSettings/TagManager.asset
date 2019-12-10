@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - ExplosionArea
   layers:
   - Default
   - TransparentFX

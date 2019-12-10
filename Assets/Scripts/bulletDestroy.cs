@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bulletDestroy : MonoBehaviour
 {
+    public GameObject explosionArea;
     float distanceTravelled = 0;
     Vector3 lastPosition;
 
@@ -16,7 +17,6 @@ public class bulletDestroy : MonoBehaviour
     {
         distanceTravelled += Vector3.Distance(transform.position, lastPosition);
         lastPosition = transform.position;
-        Debug.Log(distanceTravelled);
 
         //Destruir pelo alcance
         if (GetComponent<bulletInfo>().bulletType == 1 && distanceTravelled >= 3)
@@ -33,6 +33,8 @@ public class bulletDestroy : MonoBehaviour
         }
         if (GetComponent<bulletInfo>().bulletType == 4 && distanceTravelled >= 6)
         {
+            GameObject area = Instantiate(explosionArea) as GameObject;
+            area.transform.position = transform.position;
             Destroy(gameObject);
         }
     }
@@ -41,4 +43,6 @@ public class bulletDestroy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
 }
