@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4160295204029605416}
   - component: {fileID: -4740090998816871825}
   - component: {fileID: 6064445338720978386}
-  - component: {fileID: 1467235188922431481}
+  - component: {fileID: 999873962998786833}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionArea: {fileID: 2182812332838225308, guid: 34fd96711d51ffe44a94fdc8bb788618,
     type: 3}
---- !u!114 &1467235188922431481
+--- !u!114 &999873962998786833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6834535410685727936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80206acfe1367bc48976f4139c4ce850, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d5f04a55f08c614abc075248af9cef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10

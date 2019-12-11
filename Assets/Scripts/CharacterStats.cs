@@ -6,8 +6,6 @@ public class CharacterStats : MonoBehaviour
 {
     public int bulletCount = 0;
     public float heatlh;
-    public int attack;
-    public int defense;
     public int activeBullet;
     public float speed;
 
