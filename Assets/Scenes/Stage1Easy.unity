@@ -308,12 +308,12 @@ PrefabInstance:
     - target: {fileID: 6438065972530381801, guid: 6c92d806fb254a04d9347106d46a5ec8,
         type: 3}
       propertyPath: m_Name
-      value: SEab1
+      value: SEab4
       objectReference: {fileID: 0}
     - target: {fileID: -1199726123387548887, guid: 6c92d806fb254a04d9347106d46a5ec8,
         type: 3}
       propertyPath: activeBullet
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8394396386059224633, guid: 6c92d806fb254a04d9347106d46a5ec8,
         type: 3}

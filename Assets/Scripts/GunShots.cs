@@ -13,7 +13,14 @@ public class GunShots : MonoBehaviour
 
     void Start()
     {
-        bulletStart = GameObject.Find("bulletStart");
+        if (GetComponent<CharacterStats>().isEnemy == true)
+        {
+            bulletStart = GameObject.Find("enemyBulletStart");
+        }
+        else
+        {
+            bulletStart = GameObject.Find("bulletStart");
+        }
     }
 
     //Shotgun - 1

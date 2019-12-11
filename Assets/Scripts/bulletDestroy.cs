@@ -33,14 +33,19 @@ public class bulletDestroy : MonoBehaviour
         }
         if (GetComponent<bulletInfo>().bulletType == 4 && distanceTravelled >= 6)
         {
-            GameObject area = Instantiate(explosionArea) as GameObject;
-            area.transform.position = transform.position;
-            Destroy(gameObject);
+            explode();
         }
     }
 
     private void OnBecameInvisible()
     {
+        Destroy(gameObject);
+    }
+
+    public void explode()
+    {
+        GameObject area = Instantiate(explosionArea) as GameObject;
+        area.transform.position = transform.position;
         Destroy(gameObject);
     }
 

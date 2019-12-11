@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+    public bool isEnemy;
     public int bulletCount = 0;
     public float heatlh;
     public int activeBullet;
     public float speed;
+
+    private void Update()
+    {
+        if (isEnemy == true)
+        {
+            bulletCount = 0;
+        }
+    }
 
     public void changeBullet(int newBullet)
     {

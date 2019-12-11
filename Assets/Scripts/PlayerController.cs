@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GetComponent<CharacterStats>().heatlh == 0)
+        if (GetComponent<CharacterStats>().heatlh <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
@@ -71,5 +71,26 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         canDash = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ExplosionArea")
+        {
+            Destroy(collision.gameObject);
+            GetComponent<CharacterStats>().heatlh -= 100;
+        }
+
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            if (collision.gameObject.GetComponent<bulletInfo>().bulletType == 4)
+            {
+                collision.gameObject.GetComponent<bulletDestroy>().explode();
+                return;
+            }
+
+            GetComponent<CharacterStats>().heatlh -= collision.GetComponent<bulletInfo>().damage;
+            Destroy(collision.gameObject);
+        }
     }
 }

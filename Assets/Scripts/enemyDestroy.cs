@@ -15,7 +15,6 @@ public class enemyDestroy : MonoBehaviour
     {
         if (collision.gameObject.tag == "ExplosionArea")
         {
-            Debug.Log("Explode");
             Destroy(collision.gameObject);
             GetComponent<CharacterStats>().heatlh -= 100;
             if (GetComponent<CharacterStats>().heatlh <= 0)
@@ -29,6 +28,7 @@ public class enemyDestroy : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<bulletInfo>().bulletType == 4)
             {
+                collision.gameObject.GetComponent<bulletDestroy>().explode();
                 return;
             }
 
