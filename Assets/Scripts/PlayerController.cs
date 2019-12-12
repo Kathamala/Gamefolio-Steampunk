@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private Vector3 lastMoveDir;
+    private Animator anim;
+    private SpriteRenderer sprite;
+    public Vector3 lastMoveDir;
 
     private bool canDash = true;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
@@ -47,7 +55,38 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 moveDir = new Vector3(moveX, moveY).normalized;
+
+        //Animations
+        anim.SetFloat("horizontal", moveDir.x);
+        anim.SetFloat("vertical", moveDir.y);
+        if (moveDir.x < 0 || (moveDir.x == 0 && anim.GetInteger("facing") == 4))
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
+        }
+
         lastMoveDir = moveDir;
+
+        if (lastMoveDir.x == 1)
+        {
+            anim.SetInteger("facing", 2);
+        }
+        if (lastMoveDir.x == -1)
+        {
+            anim.SetInteger("facing", 4);
+        }
+        if (lastMoveDir.y == 1)
+        {
+            anim.SetInteger("facing", 1);
+        }
+        if (lastMoveDir.y == -1)
+        {
+            anim.SetInteger("facing", 3);
+        }
+
         transform.position += moveDir * speed * Time.deltaTime;
     }
 
